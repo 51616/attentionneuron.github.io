@@ -65,26 +65,32 @@ body {
 .transparent {
   opacity: 0;
 }
-
-p {
-  color: rgb(67, 74, 79);
+/*
+html * {
+  font-family: 'Roboto', sans-serif !important;
+}
+*/
+p, h1, h2, h3 {
+  /*font-size: 20px;*/
+  color: rgb(73, 81, 86);
+  font-family: 'Roboto', sans-serif !important ;
 }
 
-h1 {
-  color: rgb(67, 74, 79);
-}
 h2 {
-  color: rgb(67, 74, 79);
+  color: rgb(67, 74, 200);
+  font-weight: 900 !important;
 }
+
 h3 {
-  color: rgb(67, 74, 79);
+  color: rgb(83, 90, 94);
+  font-weight: 700 !important
 }
 
 
 figcaption {
   padding: 0.5em;
   color: rgba(0, 0, 0, 0.6);
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.5em;
   text-align: left;
 }
@@ -92,7 +98,7 @@ figcaption {
 dt-article figcaption {
   padding: 0.5em;
   color: rgba(0, 0, 0, 0.6);
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.5em;
   text-align: left;
 }
@@ -141,8 +147,8 @@ dt-article figcaption b {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <!-- roboto font -->
-  <!--<link href='https://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>-->
-
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400' rel='stylesheet' type='text/css'>
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">  -->
   <meta name="theme-color" content="#ffffff" />
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -230,6 +236,7 @@ dt-article figcaption b {
 </tr></table>
 </div>
 <!-- Header img/mp4 -->
+<div class="l-page" style="font-family: 'Roboto', sans-serif;">
 <!-- Header text -->
 <div style="text-align: center;">
 <figcaption style="text-align: left; color:#FF6C00; padding-top: 0;"><br/>Examples of permutation-invariant reinforcement learning agents</figcaption>

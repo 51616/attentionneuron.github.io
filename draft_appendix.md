@@ -1,3 +1,5 @@
+<div class="l-page">
+
 ## Acknowledgements
 
 The authors would like to thank Rishabh Agarwal, Jie Tan, Yingtao Tian, Douglas Eck, Aleksandra Faust and our NeurIPS2021 reviewers for valuable discussion and feedback.
@@ -93,3 +95,16 @@ Because we have $16 \times 16=256$ patches, the Key matrix has $256$ rows, we th
 To plot attended patches, we select from each row in the attention matrix the patch that has the largest value after softmax, this gives us a vector of length $1024$.
 This vector represents the patches each of the $1024$ output channels has considered to be the most important.
 $1024$ is larger than the total patch count, however there are duplications (i.e. multiple output channels have mostly focused on the same patches). The unique number turns out to be $10 \sim 20$ at each time step. We emphasize these patches on the observation images to create an animation.
+</div>
+</dt-appendix>
+
+<section class="hero" style="background-color: white;">
+  <div style="margin: 0px; margin-top: 5px;">
+    <div class="container" style="text-align: center; vertica">
+      <a href="https://vistec.ist/vision" target="_blank"><img src="assets/svg/vistec_color.svg" style="width: 130px; display: inline; margin: 0 100px;"></a>
+      <a href="https://vistec.ist/" target="_blank"><img src="assets/svg/vistec_color.svg" class="vistec-offset" style="width: 130px; display: inline; margin: 0 100px; position:relative; "></a>
+    </div>
+  </div>
+</section>
+
+</body>
