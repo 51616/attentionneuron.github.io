@@ -66,6 +66,21 @@ body {
   opacity: 0;
 }
 
+p {
+  color: rgb(67, 74, 79);
+}
+
+h1 {
+  color: rgb(67, 74, 79);
+}
+h2 {
+  color: rgb(67, 74, 79);
+}
+h3 {
+  color: rgb(67, 74, 79);
+}
+
+
 figcaption {
   padding: 0.5em;
   color: rgba(0, 0, 0, 0.6);
@@ -171,29 +186,11 @@ dt-article figcaption b {
   <script>
     document.getElementById("no_javasript_warning").style.display = "none";
   </script>
-
-<div style="text-align: center;">
-<table style="width: 100%;" cellspacing="0" cellpadding="0"><tr>
-<td style="width: 50%;border: 0px solid transparent;"><video src="assets/mp4/car_racing.mp4" type="video/mp4" autoplay muted playsinline loop style="margin: 0; width: 100%;" ></video></td>
-<td style="width: 50%;border: 0px solid transparent;"><video src="assets/mp4/pong.mp4" type="video/mp4" autoplay muted playsinline loop style="margin: 0; width: 100%;" ></video></td>
-</tr></table>
-
-</div>
-
 <dt-article id="dtbody">
-
-<div style="text-align: center;">
-<figcaption style="text-align: left; color:#FF6C00; padding-top: 0;"><br/>Examples of permutation-invariant reinforcement learning agents</figcaption>
-<figcaption style="text-align: left; padding-top: 0;">
-In this work, we investigate the properties of RL agents that treat their observations as an arbitrarily ordered, variable-length list of sensory inputs. Here, we partition the visual input from CarRacing (Left) and Atari Pong (right) into a 2D grid of small patches, and shuffled their ordering. Each sensory neuron in the system receives a stream of visual input at a particular permuted patch location, and through coordination, must complete the task at hand, even if the visual ordering is randomly permuted again several times during an episode.
-</br>
-</figcaption>
-</div>
-
-<dt-byline class="l-page transparent"></dt-byline>
+<dt-byline class="l-page" style="height: 0px;" transparent></dt-byline>
 <h1>The Sensory Neuron as a Transformer: Permutation-Invariant Neural Networks for Reinforcement Learning</h1>
-<p></p>
-<dt-byline class="l-page" id="authors_section" hidden>
+<!-- <p></p> -->
+<dt-byline class="l-page" id="authors_section">
 <div class="byline">
   <div class="authors">
     <div class="author">
@@ -225,7 +222,24 @@ In this work, we investigate the properties of RL agents that treat their observ
   </div>
 </div>
 </dt-byline>
-</dt-byline>
+<!-- Header img/mp4 -->
+<div class="l-screen-inset", style="text-align: center;">
+<table style="width: 100%; margin: auto; max_width:1280" cellspacing="0" cellpadding="0"><tr>
+<td style="width: 50%;border: 0px solid transparent;"><video src="assets/mp4/car_racing.mp4" type="video/mp4" autoplay muted playsinline loop style="margin: 0; width: 100%;" ></video></td>
+<td style="width: 50%;border: 0px solid transparent;"><video src="assets/mp4/pong.mp4" type="video/mp4" autoplay muted playsinline loop style="margin: 0; width: 100%;" ></video></td>
+</tr></table>
+</div>
+<!-- Header img/mp4 -->
+<!-- Header text -->
+<div class="l-page">
+<div style="text-align: center;">
+<figcaption style="text-align: left; color:#FF6C00; padding-top: 0;"><br/>Examples of permutation-invariant reinforcement learning agents</figcaption>
+<figcaption style="text-align: left; padding-top: 0;">
+In this work, we investigate the properties of RL agents that treat their observations as an arbitrarily ordered, variable-length list of sensory inputs. Here, we partition the visual input from CarRacing (Left) and Atari Pong (right) into a 2D grid of small patches, and shuffled their ordering. Each sensory neuron in the system receives a stream of visual input at a particular permuted patch location, and through coordination, must complete the task at hand, even if the visual ordering is randomly permuted again several times during an episode.
+</br>
+</figcaption>
+</div>
+<!-- Header text -->
 <h2>Abstract</h2>
 <p>In complex systems, we often observe complex global behavior emerge from a collection of agents interacting with each other in their environment, with each individual agent acting only on locally available information, without knowing the full picture. Such systems have inspired development of artificial intelligence algorithms in areas such as swarm optimization and cellular automata. Motivated by the emergence of collective behavior from complex cellular systems, we build systems that feed each sensory input from the environment into distinct, but identical neural networks, each with no fixed relationship with one another. We show that these sensory networks can be trained to integrate information received locally, and through communication via an attention mechanism, can collectively produce a globally coherent policy. Moreover, the system can still perform its task even if the ordering of its inputs is randomly permuted several times during an episode.
 These permutation invariant systems also display useful robustness and generalization properties that are broadly applicable.</p>
@@ -234,7 +248,7 @@ These permutation invariant systems also display useful robustness and generaliz
 <p>Sensory substitution refers to the brain's ability to use one sensory modality (e.g., touch) to supply environmental information normally gathered by another sense (e.g., vision). Numerous studies have demonstrated that humans can adapt to changes in sensory inputs, even when they are fed into the <em>wrong</em> channels <dt-cite key="bach1969vision,bach2003sensory,sandlin2019backwards,eagleman2020livewired"></dt-cite>.
 But difficult adaptations--such as learning to “see” by interpreting visual information emitted from a grid of electrodes placed on one's tongue <dt-cite key="bach2003sensory"></dt-cite>, or learning to ride a “backwards” bicycle <dt-cite key="sandlin2019backwards"></dt-cite>--require months of training to attain mastery.
 Can we do better, and create artificial systems that can rapidly adapt to sensory substitutions, without the need to be retrained?</p>
-<div style="text-align: left;">
+<div style="text-align: center;">
 <figcaption style="color:#FF6C00;">Interactive Demo</figcaption><br/>
 <div id="intro_demo" class="unselectable" style="text-align: left;"></div>
 <figcaption style="text-align: left;">
@@ -545,8 +559,10 @@ This could be useful in many real world applications. For example, such policies
 Moreover, our method accepts previous actions as a feedback signal in this work. However, the feedback signal is not restricted to the actions.
 We look forward to seeing future works that include signals such as environmental rewards to train permutation invariant meta-learning agents that can adapt to not only changes in the observed environment, but also to changes to itself.</p>
 <p><em>If you would like to discuss any issues or give feedback, please visit the <a href="https://github.com/attentionneuron/attentionneuron.github.io/issues">GitHub</a> repository of this page for more information.</em></p>
+</div>
 </dt-article>
 <dt-appendix>
+<div class="l-page">
 <h2>Acknowledgements</h2>
 <p>The authors would like to thank Rishabh Agarwal, Jie Tan, Yingtao Tian, Douglas Eck, Aleksandra Faust and our NeurIPS2021 reviewers for valuable discussion and feedback.</p>
 <p>The experiments in this work were performed on virtual machines provided by <a href="https://cloud.google.com/">Google Cloud Platform</a>.</p>
@@ -624,8 +640,17 @@ Because we have <span class="katex"><span class="katex-mathml"><math><semantics>
 To plot attended patches, we select from each row in the attention matrix the patch that has the largest value after softmax, this gives us a vector of length <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mn>0</mn><mn>2</mn><mn>4</mn></mrow><annotation encoding="application/x-tex">1024</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mord mathrm">0</span><span class="mord mathrm">2</span><span class="mord mathrm">4</span></span></span></span>.
 This vector represents the patches each of the <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mn>0</mn><mn>2</mn><mn>4</mn></mrow><annotation encoding="application/x-tex">1024</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mord mathrm">0</span><span class="mord mathrm">2</span><span class="mord mathrm">4</span></span></span></span> output channels has considered to be the most important.
 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mn>0</mn><mn>2</mn><mn>4</mn></mrow><annotation encoding="application/x-tex">1024</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mord mathrm">0</span><span class="mord mathrm">2</span><span class="mord mathrm">4</span></span></span></span> is larger than the total patch count, however there are duplications (i.e. multiple output channels have mostly focused on the same patches). The unique number turns out to be <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mn>0</mn><mo>∼</mo><mn>2</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">10 \sim 20</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mord mathrm">0</span><span class="mrel">∼</span><span class="mord mathrm">2</span><span class="mord mathrm">0</span></span></span></span> at each time step. We emphasize these patches on the observation images to create an animation.</p>
+</div>
 </dt-appendix>
-</dt-appendix>
+
+<!-- <section class="hero" style="background-color: white;">
+  <div style="margin: 0px; margin-top: 5px;">
+    <div class="container" style="text-align: center; vertica">
+      <a href="https://vistec.ist/vision" target="_blank"><img src="assets/svg/vistec_color.svg" style="width: 130px; display: inline; margin: 0 100px;"></a>
+      <a href="https://vistec.ist/" target="_blank"><img src="assets/svg/vistec_color.svg" class="vistec-offset" style="width: 130px; display: inline; margin: 0 100px; position:relative; "></a>
+    </div>
+  </div>
+</section> -->
 </body>
 <script type="text/bibliography">
 @article{openai_gym,
