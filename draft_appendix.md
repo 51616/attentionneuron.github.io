@@ -97,14 +97,12 @@ This vector represents the patches each of the $1024$ output channels has consid
 $1024$ is larger than the total patch count, however there are duplications (i.e. multiple output channels have mostly focused on the same patches). The unique number turns out to be $10 \sim 20$ at each time step. We emphasize these patches on the observation images to create an animation.
 </div>
 </dt-appendix>
-
-<section class="hero" style="background-color: white;">
-  <div style="margin: 0px; margin-top: 5px;">
+<section class="hero" style="background-color: rgb(250,250,250);">
+  <div style="margin: 0px; margin-top: 0px;">
     <div class="container" style="text-align: center; vertica">
       <a href="https://vistec.ist/vision" target="_blank"><img src="assets/svg/vistec_color.svg" style="width: 130px; display: inline; margin: 0 100px;"></a>
       <a href="https://vistec.ist/" target="_blank"><img src="assets/svg/vistec_color.svg" class="vistec-offset" style="width: 130px; display: inline; margin: 0 100px; position:relative; "></a>
     </div>
   </div>
 </section>
-
 </body>

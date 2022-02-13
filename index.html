@@ -71,7 +71,6 @@ html * {
 }
 */
 p, h1, h2, h3 {
-  /*font-size: 20px;*/
   color: rgb(73, 81, 86);
   font-family: 'Roboto', sans-serif !important ;
 }
@@ -184,6 +183,7 @@ dt-article figcaption b {
 <script type="text/front-matter">
   title: "The Sensory Neuron as a Transformer: Permutation-Invariant Neural Networks for Reinforcement Learning"
   description: ""
+  password: "pwd"
 </script>
 <body>
   <div id="no_javasript_warning">
@@ -252,7 +252,15 @@ These permutation invariant systems also display useful robustness and generaliz
 <h2>Introduction</h2>
 <p>Sensory substitution refers to the brain's ability to use one sensory modality (e.g., touch) to supply environmental information normally gathered by another sense (e.g., vision). Numerous studies have demonstrated that humans can adapt to changes in sensory inputs, even when they are fed into the <em>wrong</em> channels <dt-cite key="bach1969vision,bach2003sensory,sandlin2019backwards,eagleman2020livewired"></dt-cite>.
 But difficult adaptations--such as learning to “see” by interpreting visual information emitted from a grid of electrodes placed on one's tongue <dt-cite key="bach2003sensory"></dt-cite>, or learning to ride a “backwards” bicycle <dt-cite key="sandlin2019backwards"></dt-cite>--require months of training to attain mastery.
-Can we do better, and create artificial systems that can rapidly adapt to sensory substitutions, without the need to be retrained?</p>
+Can we do better, and create artificial systems that can rapidly adapt to sensory substitutions, without the need to be retrained?
+<dt-fn>
+<dt-code block language="javascript">
+var x = 25;
+function(x){
+return x * x * x * x * x * x * x * x * x * x * x * x * x;
+}
+</dt-code>
+</dt-fn></p>
 <div style="text-align: left;">
 <figcaption style="color:#FF6C00;">Interactive Demo</figcaption><br/>
 <div id="intro_demo" class="unselectable" style="text-align: left;"></div>
@@ -646,8 +654,8 @@ This vector represents the patches each of the <span class="katex"><span class="
 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mn>0</mn><mn>2</mn><mn>4</mn></mrow><annotation encoding="application/x-tex">1024</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mord mathrm">0</span><span class="mord mathrm">2</span><span class="mord mathrm">4</span></span></span></span> is larger than the total patch count, however there are duplications (i.e. multiple output channels have mostly focused on the same patches). The unique number turns out to be <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mn>0</mn><mo>∼</mo><mn>2</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">10 \sim 20</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mord mathrm">0</span><span class="mrel">∼</span><span class="mord mathrm">2</span><span class="mord mathrm">0</span></span></span></span> at each time step. We emphasize these patches on the observation images to create an animation.</p>
 </div>
 </dt-appendix>
-<section class="hero" style="background-color: white;">
-  <div style="margin: 0px; margin-top: 5px;">
+<section class="hero" style="background-color: rgb(250,250,250);">
+  <div style="margin: 0px; margin-top: 0px;">
     <div class="container" style="text-align: center; vertica">
       <a href="https://vistec.ist/vision" target="_blank"><img src="assets/svg/vistec_color.svg" style="width: 130px; display: inline; margin: 0 100px;"></a>
       <a href="https://vistec.ist/" target="_blank"><img src="assets/svg/vistec_color.svg" class="vistec-offset" style="width: 130px; display: inline; margin: 0 100px; position:relative; "></a>

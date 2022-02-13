@@ -10,7 +10,14 @@ ______
 Sensory substitution refers to the brain's ability to use one sensory modality (e.g., touch) to supply environmental information normally gathered by another sense (e.g., vision). Numerous studies have demonstrated that humans can adapt to changes in sensory inputs, even when they are fed into the *wrong* channels <dt-cite key="bach1969vision,bach2003sensory,sandlin2019backwards,eagleman2020livewired"></dt-cite>.
 But difficult adaptations--such as learning to “see” by interpreting visual information emitted from a grid of electrodes placed on one's tongue <dt-cite key="bach2003sensory"></dt-cite>, or learning to ride a “backwards” bicycle <dt-cite key="sandlin2019backwards"></dt-cite>--require months of training to attain mastery.
 Can we do better, and create artificial systems that can rapidly adapt to sensory substitutions, without the need to be retrained?
-
+<!-- <dt-fn>
+<dt-code block language="javascript">
+  var x = 25;
+  function(x){
+    return x * x * x * x * x * x * x * x * x * x * x * x * x;
+  }
+</dt-code>
+</dt-fn> -->
 <div style="text-align: left;">
 <figcaption style="color:#FF6C00;">Interactive Demo</figcaption><br/>
 <div id="intro_demo" class="unselectable" style="text-align: left;"></div>
