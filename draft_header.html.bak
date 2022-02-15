@@ -239,11 +239,9 @@ dt-article figcaption b {
 </tr></table>
 </div>
 <!-- Header img/mp4 -->
-<!-- <div style="font-family: 'Roboto', sans-serif; width: 984px; margin-left: auto; margin-right: auto;"> -->
-<!-- <div style="font-family: 'Roboto', sans-serif;" > -->
-
+<div style="font-family: 'Roboto', sans-serif;">
 <!-- Header text -->
-<div class="l-page", style="text-align: center; font-family: 'Roboto', sans-serif;">
+<div style="text-align: center;">
 <figcaption style="text-align: left; color:#FF6C00; padding-top: 0;"><br/>Examples of permutation-invariant reinforcement learning agents</figcaption>
 <figcaption style="text-align: left; padding-top: 0;">
 In this work, we investigate the properties of RL agents that treat their observations as an arbitrarily ordered, variable-length list of sensory inputs. Here, we partition the visual input from CarRacing (Left) and Atari Pong (right) into a 2D grid of small patches, and shuffled their ordering. Each sensory neuron in the system receives a stream of visual input at a particular permuted patch location, and through coordination, must complete the task at hand, even if the visual ordering is randomly permuted again several times during an episode.

@@ -1,5 +1,3 @@
-<div class="l-page">
-
 ## Abstract 
 
 In complex systems, we often observe complex global behavior emerge from a collection of agents interacting with each other in their environment, with each individual agent acting only on locally available information, without knowing the full picture. Such systems have inspired development of artificial intelligence algorithms in areas such as swarm optimization and cellular automata. Motivated by the emergence of collective behavior from complex cellular systems, we build systems that feed each sensory input from the environment into distinct, but identical neural networks, each with no fixed relationship with one another. We show that these sensory networks can be trained to integrate information received locally, and through communication via an attention mechanism, can collectively produce a globally coherent policy. Moreover, the system can still perform its task even if the ordering of its inputs is randomly permuted several times during an episode.
@@ -20,41 +18,31 @@ Can we do better, and create artificial systems that can rapidly adapt to sensor
   }
 </dt-code>
 </dt-fn> -->
+<div>
 <!-- <div style="text-align: left;"> 
 <div style="margin-left: 24px; margin-right: 24px; width: 100vw;"> -->
   
-</div>
-<div class="l-page">
 <figcaption style="color:#FF6C00;">Interactive Demo</figcaption><br/>
-</div>
-<div class="l-page">
 <div id="intro_demo" class="unselectable"></div>
-</div>
-<div class="l-page">
 <figcaption style="text-align: left;">
 <b>Permutation Invariant Cart-Pole Swing Up Demo</b><br/>
 A permutation invariant network performing <i>CartpoleSwingupHarder</i>. Shuffle the order of the 5 observations at any time, and see how the agent adapts to the new ordering of the observations.
 </figcaption>
 </div>
 
-<div class="l-page">
 Modern deep learning systems are generally unable to adapt to a sudden reordering of sensory inputs, unless the model is retrained, or if the user manually corrects the ordering of the inputs for the model. However, techniques from continual meta-learning, such as adaptive weights <dt-cite key="schmidhuber1992learning,ba2016using,ha2016hypernetworks"></dt-cite>, Hebbian-learning <dt-cite key="miconi2018differentiable,miconi2020backpropamine,najarro2020meta"></dt-cite>, and model-based <dt-cite key="deisenroth2011pilco,amos2018differentiable,ha2018worldmodels,hafner2018planet"></dt-cite> approaches can help the model adapt to such changes, and remain a promising active area of research.
 
 In this work, we investigate agents that are explicitly designed to deal with sudden random reordering of their sensory inputs while performing a task. Motivated by recent developments in self-organizing neural networks <dt-cite key="fortuin2018som,mordvintsev2020growing,randazzo2020selfclassifying"></dt-cite> related to cellular automata <dt-cite key="neumann1966theory,codd2014cellular,conway1970game,wolfram1984cellular,chopard1998cellular"></dt-cite>, in our experiments, we feed each sensory input (which could be an individual state from a continuous control environment, or a patch of pixels from a visual environment) into an individual neural network module that integrates information from only this particular sensory input channel over time. While receiving information locally, each of these individual sensory neural network modules also continually broadcasts an output message. Inspired by the Set Transformer <dt-cite key="vaswani2017,set2019"></dt-cite> architecture, an attention mechanism combines these messages to form a global latent code which is then converted into the agent's action space. The attention mechanism can be viewed as a form of adaptive weights of a neural network, and in this context, allows for an arbitrary number of sensory inputs that can be processed in any random order.
 
 In our experiments, we find that each individual sensory neural network module, despite receiving only localized information, can still collectively produce a globally coherent policy, and that such a system can be trained to perform tasks in several popular reinforcement learning (RL) environments. Furthermore, our system can utilize a varying number of sensory input channels in any randomly permuted order, even when the order is shuffled again several times during an episode.
-</div>
 
-<div class="l-page">
+<div style="text-align: left;">
 <video class="b-lazy" data-src="assets/mp4/pong_occluded_reshuffle.mp4" type="video/mp4" autoplay muted playsinline loop style="margin: 0; width: 100%;" ></video>
-</div>
-<div style="l-page">
 <figcaption style="text-align: left;">
 Our pong agent continues to work even when it is given a small subset (30%) of the screen, in a shuffled order. The screen is reshuffled multiple times during the game. For comparison, the actual game is shown on the left.
 </figcaption>
 </div>
 
-<div class="l-page">
 Permutation invariant systems have several advantages over traditional fixed-input systems.
 We find that encouraging a system to learn a coherent representation of a permutation invariant observation space leads to policies that are more robust and generalizes better to unseen situations.
 We show that, without additional training, our system continues to function even when we inject additional input channels containing noise or redundant information.
@@ -111,14 +99,10 @@ As we'll discuss next, this formulation lets us convert an observation signal fr
 ### Sensory Neurons with Attention
 
 To create permutation invariant (PI) agents, we propose to add an extra layer in front of the agent's policy network $\pi$, which accepts the current observation $o_t$ and the previous action $a_{t-1}$ as its inputs. We call this new layer AttentionNeuron, and the following figure gives an overview of our method:
-</div>
-<div class="l-screen-inset", style="text-align: center;">
-<img class="b-lazy" src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw== data-src="assets/png/attentionneuron.png" style="display: block; margin: auto; width: 100%;"/>
-</div>
 
-<div class="l-page">
+<div style="text-align: center;">
+<img class="b-lazy" src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw== data-src="assets/png/attentionneuron.png" style="display: block; margin: auto; width: 100%;"/>
 <figcaption style="text-align: left;">
-<br/>
 <b>Overview of Method</b><br/>
 AttentionNeuron is a standalone layer, in which each sensory neuron only has access to a part of the unordered observations <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>o</mi><mi>t</mi></msub></mrow><annotation encoding="application/x-tex">o_t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">o</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">t</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>. Together with the agent's previous action <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mrow><mi>t</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">a_{t-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.638891em;vertical-align:-0.208331em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">t</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>, each neuron generates messages independently using the shared functions <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mi>k</mi></msub><mo>(</mo><msub><mi>o</mi><mi>t</mi></msub><mo>[</mo><mi>i</mi><mo>]</mo><mo separator="true">,</mo><msub><mi>a</mi><mrow><mi>t</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">f_k(o_t[i], a_{t-1})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathit">o</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">t</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mopen">[</span><span class="mord mathit">i</span><span class="mclose">]</span><span class="mpunct">,</span><span class="mord"><span class="mord mathit">a</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">t</span><span class="mbin">−</span><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mclose">)</span></span></span></span> and <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>f</mi><mi>v</mi></msub><mo>(</mo><msub><mi>o</mi><mi>t</mi></msub><mo>[</mo><mi>i</mi><mo>]</mo><mo>)</mo></mrow><annotation encoding="application/x-tex">f_v(o_t[i])</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.10764em;">f</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.03588em;">v</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathit">o</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">t</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mopen">[</span><span class="mord mathit">i</span><span class="mclose">]</span><span class="mclose">)</span></span></span></span>. The attention mechanism summarizes the messages into a global latent code <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>m</mi><mi>t</mi></msub></mrow><annotation encoding="application/x-tex">m_t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">m</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">t</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span>.
 </figcaption>
@@ -126,7 +110,6 @@ AttentionNeuron is a standalone layer, in which each sensory neuron only has acc
 <!--actual caption in markdown, since it doens't work in the figure caption.-->
 <!--AttentionNeuron is a standalone layer, in which each sensory neuron only has access to a part of the unordered observations $o_t$. Together with the agent's previous action $a_{t-1}$, each neuron generates messages independently using the shared functions $f_k(o_t[i], a_{t-1})$ and $f_v(o_t[i])$. The attention mechanism summarizes the messages into a global latent code $m_t$.-->
 
-<div class="l-page">
 The operations inside AttentionNeuron can be described by the following two equations:
 
 <div style="text-align: center;">
